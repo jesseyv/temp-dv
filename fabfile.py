@@ -12,10 +12,9 @@ def upload_tar_from_git():
 
 def i():
     repo_url = local('git config --get remote.origin.url', capture=True)
-    
     repo_name = local('basename {0} .git'.format(repo_url), capture=True)
 
-    local('git archive origin/master --format=tar | gzip -9 > /tmp/release.tar.gz')
+    local('tar cf - . | gzip -9 > /tmp/release.tar.gz')
     run('mkdir -p /var/www/projects/{0}'.format(repo_name))
     with cd('/var/www/projects/{0}'.format(repo_name)):
         put('/tmp/release.tar.gz', '/var/www/projects/{0}/release.tar.gz'.format(repo_name))
@@ -26,9 +25,8 @@ def i():
 
 def pull():
     repo_url = local('git config --get remote.origin.url', capture=True)
-    
     repo_name = local('basename {0} .git'.format(repo_url), capture=True)
-    with settings(user='www-data'):
-        run('git pull')
-    #with cd('/var/www/projects/{0}'.format(repo_name)):
-    #    run('git pull original master')
+    
+    with settings(forward_agent=True):
+        with cd('/var/www/projects/{0}'.format(repo_name)):
+            run('git pull')
