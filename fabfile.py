@@ -43,11 +43,15 @@ def deploy_init():
         with cd(PROJECTS_ROOT):
             if run('test -d {0}'.format(PROJECT_REPO_NAME)).failed:
                 print(green('Cloning project\'s repo'))
-                run('git clone {0}'.format(PROJECT_REPO_GIT_URL))
+                _sudo('git clone {0}'.format(PROJECT_REPO_GIT_URL))
 
             with cd(PROJECT_REPO_NAME):
                 print(green('Updating project\'s repo'))
-                run('git reset --hard HEAD; git pull')
+                _sudo('git reset --hard HEAD; git pull')
+                put('local_settings.py', '{0}{1}'.format(PROJECTS_ROOT, PROJECT_REPO_NAME))
+                run('chown {0}:{0} local_settings.py'.format(DEPLOY_USER))
+                put('fixtures', '{0}{1}'.format(PROJECTS_ROOT, PROJECT_REPO_NAME))
+                run('chown -R {0}:{0} fixtures'.format(DEPLOY_USER))
                 WORK_HOME = _sudo('echo $WORKON_HOME')
 
                 if run('test -d {0}/{1}'.format(WORK_HOME, PROJECT_REPO_NAME)).failed:
@@ -57,5 +61,14 @@ def deploy_init():
                 with prefix('workon {}'.format(PROJECT_REPO_NAME)):
                     print(green('Installing required packets'))
                     _sudo('pip install -r requirements.txt')
+
+                    print(green('Syncing DB'))
+                    _sudo('python manage.py syncdb --noinput')
+
+                    print(green('Syncing DB'))
+                    _sudo('python manage.py collectstatic --noinput')
+
+                    print(green('Installing fixtures'))
+                    _sudo('python manage.py loaddata fixtures/*.json')
 
     enable_proj()
