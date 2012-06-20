@@ -65,7 +65,7 @@ def deploy_init():
                     print(green('Syncing DB'))
                     _sudo('python manage.py syncdb --noinput')
 
-                    print(green('Syncing DB'))
+                    print(green('Collecting static'))
                     _sudo('python manage.py collectstatic --noinput')
 
                     print(green('Installing fixtures'))
