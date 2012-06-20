@@ -18,9 +18,10 @@ def _sudo(command):
 
 def enable_proj():
     print(green('Enabling project serving'))
-    run('ln -s -f {0}{1}/uwsgi.ini /etc/uwsgi/apps-enabled/{1}'.format(PROJECTS_ROOT, PROJECT_REPO_NAME))
+    run('ln -s -f {0}{1}/uwsgi.ini /etc/uwsgi/apps-enabled/{1}.ini'.format(PROJECTS_ROOT, PROJECT_REPO_NAME))
     run('ln -s -f {0}{1}/nginx.conf /etc/nginx/sites-available/{1}'.format(PROJECTS_ROOT, PROJECT_REPO_NAME))
     run('ln -s -f /etc/nginx/sites-available/{0} /etc/nginx/sites-enabled/{0}'.format(PROJECT_REPO_NAME))
+    restart_proj()
 
 def disable_proj():
     print(green('Disabling project serving'))
@@ -43,8 +44,6 @@ def deploy_init():
             if run('test -d {0}'.format(PROJECT_REPO_NAME)).failed:
                 print(green('Cloning project\'s repo'))
                 run('git clone {0}'.format(PROJECT_REPO_GIT_URL))
-                enable_proj()
-                    
 
             with cd(PROJECT_REPO_NAME):
                 print(green('Updating project\'s repo'))
@@ -59,5 +58,4 @@ def deploy_init():
                     print(green('Installing required packets'))
                     _sudo('pip install -r requirements.txt')
 
-    restart_proj()
-
+    enable_proj()
