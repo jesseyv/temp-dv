@@ -1,49 +1,111 @@
 {% extends "home.html" %}{% load menues %}
-{% block left_menu %}
-    {% left_menu product.productgroup %}
+{% block main %}
+    <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>
+    <div class="tov-top">
+        <div class="tov-bot">
+            <div class="wrap-prod">
+                <div class="prod-image">
+                    <img src="{{product.get_image.image.url_148x148}}" border="0" alt="" />
+                    <span>{{ product.price }}</span> руб.
+                </div>
+                <div class="description">
+                    <div class="prod-name">{{ product.title|safe }}</div>
+                    <div class="prod-note">{{ product.description|safe }}</div>
+{#                    <div class="prod-desc">#}
+{#                        <p><span>Производство:</span> CYCLO (США)</p>#}
+{#                        <p><span>Материал:</span> спрей</p>#}
+{#                        <p><span>Размеры:</span> 60 ml.</p>#}
+{#                    </div>#}
+{#                    <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
+{#                    <button class="add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
+                    <form id="order-form-{{product.pk}}" class="order-form">
+                        <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="1" size="3"/>
+                        <label>
+                            <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>
+                        </label>
+                    </form>
+                </div>
+            <div class="clear"></div>
+            </div>
+        <div class="clear"></div>
+{#        <div class="wrap-slider">#}
+{#            <a href="#" class="arr-left"></a>#}
+{#            <a href="#" class="arr-right"></a>#}
+{#            <div class="rel">#}
+{#                <div class="width">#}
+{#                    <ul id="slider">#}
+{#                        <li>#}
+{#                            <span class="thum"><img src="images/prod_thum.jpg" border="0" alt="" /></span>#}
+{#                            <span class="name">Освежитель воздуха VIVA-SCENT</span>#}
+{#                            <span class="price">1000 руб.</span>#}
+{#                            <a href="#" class="buy">купить</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <span class="thum"><img src="images/prod_thum.jpg" border="0" alt="" /></span>#}
+{#                            <span class="name">Освежитель воздуха VIVA-SCENT</span>#}
+{#                            <span class="price">1000 руб.</span>#}
+{#                            <a href="#" class="buy">купить</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <span class="thum"><img src="images/prod_thum.jpg" border="0" alt="" /></span>#}
+{#                            <span class="name">Освежитель воздуха VIVA-SCENT</span>#}
+{#                            <span class="price">1000 руб.</span>#}
+{#                            <a href="#" class="buy">купить</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+        </div>
+    </div>
 {% endblock %}
-{% block content %}
-        <h1>{{product.title|safe}}</h1>
-        {% navigation product.productgroup %}
-        <div class="line"></div>
-        <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>
-        <div class="catalog">
-            <table class="goods-list">
-                <tbody><tr>
-                    <!--<th class="name" colspan="2">Наименование</th>-->
-                    <!--<th class="img"></th>-->
-                    <th class="characteristic">Характеристика</th>
-                    <th class="price">Цена, руб.</th>
-                    <th class="count">Загрузка</th>
-                    <th>Заказ</th>
-                </tr>
-                <tr class="odd">
-                    <!--<td><a href="{% url product_link product.pk %}" class="product-link">{{product.title}}</a></td>-->
-                    <!--<td class="has-border">-->
-                        <!--{#<img src="{{product.get_image.image.url_95x95}}" title="{{product.get_image.title}}" alt="{{product.get_image.title}}">#}-->
-                    <!--</td>-->
-                    <td class="has-border">{{product.property|safe}}</td>
-                    <td class="has-border">{{product.price}}/{{product.unit}}</td>
-                    <td class="has-border">{{product.load}} {{product.unit}}</td>
-                    <td>
-                        <form id="order-form-{{product.pk}}" class="order-form">
-                            <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="0" />
-                            <label>
-                                <button class="add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>
-                            </label>
-                        </form>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div> <!-- catalog -->
-        <p class="small">{{product.description|safe}}</p>
-        {% if product_images %}
-        <div id="product-gallery" class="gallery">
-            <ul>
-            {% for photo in product_images %}
-                <li><a title="{{photo.title}}" href="{{photo.image.url_300x300}}"><img src="{{photo.image.url_150x150}}" alt="{{ photo.image.title }}"></a></li>
-            {% endfor %}
-            </ul>
-        </div>{% endif %}
-{% endblock %}
+
+{#{% extends "home.html" %}{% load menues %}#}
+{#{% block left_menu %}#}
+{#    {% left_menu product.productgroup %}#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#        <h1>{{product.title|safe}}</h1>#}
+{#        {% navigation product.productgroup %}#}
+{#        <div class="line"></div>#}
+{#        <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>#}
+{#        <div class="catalog">#}
+{#            <table class="goods-list">#}
+{#                <tbody><tr>#}
+{#                    <!--<th class="name" colspan="2">Наименование</th>-->#}
+{#                    <!--<th class="img"></th>-->#}
+{#                    <th class="characteristic">Характеристика</th>#}
+{#                    <th class="price">Цена, руб.</th>#}
+{#                    <th class="count">Загрузка</th>#}
+{#                    <th>Заказ</th>#}
+{#                </tr>#}
+{#                <tr class="odd">#}
+{#                    <!--<td><a href="{% url product_link product.pk %}" class="product-link">{{product.title}}</a></td>-->#}
+{#                    <!--<td class="has-border">-->#}
+{#                        <!--{#<img src="{{product.get_image.image.url_95x95}}" title="{{product.get_image.title}}" alt="{{product.get_image.title}}">#}-->#}
+{#                    <!--</td>-->#}
+{#                    <td class="has-border">{{product.property|safe}}</td>#}
+{#                    <td class="has-border">{{product.price}}/{{product.unit}}</td>#}
+{#                    <td class="has-border">{{product.load}} {{product.unit}}</td>#}
+{#                    <td>#}
+{#                        <form id="order-form-{{product.pk}}" class="order-form">#}
+{#                            <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="0" />#}
+{#                            <label>#}
+{#                                <button class="add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
+{#                            </label>#}
+{#                        </form>#}
+{#                    </td>#}
+{#                </tr>#}
+{#                </tbody>#}
+{#            </table>#}
+{#        </div> <!-- catalog -->#}
+{#        <p class="small">{{product.description|safe}}</p>#}
+{#        {% if product_images %}#}
+{#        <div id="product-gallery" class="gallery">#}
+{#            <ul>#}
+{#            {% for photo in product_images %}#}
+{#                <li><a title="{{photo.title}}" href="{{photo.image.url_300x300}}"><img src="{{photo.image.url_150x150}}" alt="{{ photo.image.title }}"></a></li>#}
+{#            {% endfor %}#}
+{#            </ul>#}
+{#        </div>{% endif %}#}
+{#{% endblock %}#}

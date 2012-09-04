@@ -25,13 +25,13 @@ def enable_proj():
 
 def disable_proj():
     print(green('Disabling project serving'))
-    run('rm /etc/uwsgi/apps-enabled/{0}'.format(PROJECT_REPO_NAME))
+    run('rm /etc/uwsgi/apps-enabled/{0}.ini'.format(PROJECT_REPO_NAME))
     run('rm /etc/nginx/sites-enabled/{0}'.format(PROJECT_REPO_NAME))
 
 def restart_proj():
     with settings(warn_only=True):
         print(green('Restarting project serving'))
-        run('touch /etc/uwsgi/apps-enabled/{}'.format(PROJECT_REPO_NAME))
+        run('touch /etc/uwsgi/apps-enabled/{}.ini'.format(PROJECT_REPO_NAME))
         run('service nginx reload')
 
 def deploy_init():

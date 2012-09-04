@@ -1,36 +1,90 @@
 {% extends "home.html" %}{% load menues %}
-{% block left_menu %}
-    {% left_menu group %}
-{% endblock %}
-{% block content %}
-        <h1>{{group.title|safe}}</h1>
-        {% navigation group %}
-        <div class="line"></div>
-        <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>
-        <div class="catalog">
-            {% for group in groups %}
-                <div>
-                    <a href="{% url price_list group.pk %}" title="{{group.title}}">
-                        <img src="{{group.get_image_url}}" alt="{{group.title}}"><br/>
-                        {{group.title}}<em>({{group.products_count}})</em></a>
-                    <ul>
-                    {% for sub_group in group.sub_groups.all %}
-                        <li><a href="{% url price_list sub_group.pk %}" title="{{sub_group.title}}">{{sub_group.title}}</a>{% if not forloop.last%},{% endif %}</li>
-                    {% endfor %}
-                    </ul>
+
+{% block main %}
+{#    <ul id="nav">#}
+{#            	<li><a href="#">НАКЛЕЙКИ <span>(6)</span></a></li>#}
+{#                <li><a href="#">АРОМАТИЗАТОРЫ <span>(0)</span></a></li>#}
+{#                <li><a href="#">СВЕТОДИОДЫ <span>(10)</span></a></li>#}
+{#                <li><a href="#">АВТОЛАМПЫ <span>(0)</span></a></li>#}
+{#                <li><a href="#">ХОМУТЫ <span>(0)</span></a></li>#}
+{#                <li><a href="#">КАРБОНОВАЯ ПЛЕНКА <span>(0)</span></a></li>#}
+{#            </ul>#}
+{#    <div class="clear"></div>#}
+    {% navigation group %}
+
+    {% for group in groups %}
+        <div class="tov-top price-group {% cycle 'odd' 'even' %}">
+            <div class="tov-bot">
+                <div class="tov-name"><a href="{% url price_list group.pk %}">{{ group.title }} ({{group.products_count}})</a></div>
+                <div class="tov-img">
+                    <a href="{% url price_list group.pk %}"><img src="{{group.get_image_url}}" border="0" alt="" /></a>
                 </div>
-                {% cycle '' '' '<p class="clr"></p>' %}
-            {% endfor %}
-            <p class="clr"></p>
+                <div class="desc">
+{#                    <div class="t-note">Спрей-освежитель воздуха усиленного действия, для борьбы с устойчевыми и затхлыми запахами.</div>#}
+{#                    <a href="#" class="buy">купить</a>#}
+{#                    <div class="price"><span>500</span> руб.</div>#}
+{#                    <div class="col">#}
+{#                        <form action="" method="">#}
+{#                            <span>Количество:</span><input type="text" value="" />#}
+{#                        </form>#}
+{#                    </div>#}
+{#                    <a href="{% url price_list group.pk %}" class="more">Выбрать товар</a>#}
+                <div class="clear"></div>
+                </div>
+            <div class="clear"></div>
+            </div>
+        </div>
+    {% endfor %}
 
-            {% productlist group %}
+    {% productlist group %}
 
-            {% for group in groups %}
-                {% productlist group %}
-            {% endfor %}
-
-        </div> <!-- catalog -->
-
-    <p class="small">{{p.content|safe}}</p>
-
+{#    <ul class="pagination">#}
+{#        <li><a href="#">1</a></li>#}
+{#        <li><a href="#">2</a></li>#}
+{#        <li><a href="#">3</a></li>#}
+{#        <li><a href="#">4</a></li>#}
+{#        <li><a href="#">5</a></li>#}
+{#        <li><a href="#">6</a></li>#}
+{#    </ul>#}
+    <div class="content">
+{#        <h1>Описание категории сайта</h1>#}
+        {{p.content|safe}}
+    {{ p }}
+    </div>
 {% endblock %}
+{#{% extends "home.html" %}{% load menues %}#}
+{#{% block left_menu %}#}
+{#    {% left_menu group %}#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#        <h1>{{group.title|safe}}</h1>#}
+{#        {% navigation group %}#}
+{#        <div class="line"></div>#}
+{#        <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>#}
+{#        <div class="catalog">#}
+{#            {% for group in groups %}#}
+{#                <div>#}
+{#                    <a href="{% url price_list group.pk %}" title="{{group.title}}">#}
+{#                        <img src="{{group.get_image_url}}" alt="{{group.title}}"><br/>#}
+{#                        {{group.title}}<em>({{group.products_count}})</em></a>#}
+{#                    <ul>#}
+{#                    {% for sub_group in group.sub_groups.all %}#}
+{#                        <li><a href="{% url price_list sub_group.pk %}" title="{{sub_group.title}}">{{sub_group.title}}</a>{% if not forloop.last%},{% endif %}</li>#}
+{#                    {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
+{#                {% cycle '' '' '<p class="clr"></p>' %}#}
+{#            {% endfor %}#}
+{#            <p class="clr"></p>#}
+{##}
+{#            {% productlist group %}#}
+{##}
+{#            {% for group in groups %}#}
+{#                {% productlist group %}#}
+{#            {% endfor %}#}
+{##}
+{#        </div> <!-- catalog -->#}
+{##}
+{#    <p class="small">{{p.content|safe}}</p>#}
+{##}
+{#{% endblock %}#}
