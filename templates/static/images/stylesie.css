@@ -1,0 +1,4 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body {width: expression((documentElement.clientWidth||document.body.clientWidth)<1000?'1000px':'');}

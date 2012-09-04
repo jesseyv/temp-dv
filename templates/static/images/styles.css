@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body {
+	margin:0px;
+	padding:0px;
+	position:relative;
+	height:100%;
+}
+body {
+	text-align:left;
+	background:#f1f1f1;
+	position:relative;
+	font:normal 14px/150% Verdana, Geneva, sans-serif;
+	color:#272727;
+}
+a {
+	color:#000;
+	text-decoration:underline;
+}
+a:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+a img {border-color:#666666}
+a.highslide {display:block}
+a.highslide img {border:none}
+a.highslide:hover img {border:none}
+
+YMaps { color:#000; }
+
+h1,h2,h3,h4,h5,h6 { margin:0px; padding:10px 0; color:#272727; font-family:Verdana, Geneva, sans-serif;font-weight:normal}
+h1 { font-size:24px; padding:0 0 12px}
+h2 { font-size:21px}
+h3 { font-size:18px}
+h4 { font-size:15px}
+h5,h6 { font-size:11px}
+
+
+#wrap {position:relative; height:auto !important; height:100%; min-height:100%; margin:0 0 -66px}
+.clear {clear:both; height:0; font-size:0}
+
+.top {position:relative; z-index:10000; background:url(bg_top.jpg) 0 0 repeat-x;}
+#header {position:relative; height:58px; width:988px; margin:0 auto}
+.logo {position:absolute; top:0; left:31px; z-index:1000}
+.logo a img {border:none}
+.logo2 {position:absolute; top:0; left:47px; z-index:1000}
+.logo2 a img {border:none}
+.phone {position:absolute; top:11px; right:71px; font:normal 11px Verdana, Geneva, sans-serif; color:#e80000; width:198px}
+.phone span {font-size:20px}
+.que {position:absolute; top:18px; right:284px; background:url(que_ico.png) 0 55% no-repeat; font:normal 11px/17px Verdana, Geneva, sans-serif; color:#676767; padding:0 0 2px 23px; height:17px}
+.que a {color:#676767}
+
+.wrap-main {background:url(bg_main.jpg) 0 0 repeat-x; position:relative}
+.bg-right {height:427px; width:45%; background:url(bg_main_rt.jpg) 0 0 repeat-x; position:absolute; top:0; right:0}
+.wrap-main-in {background:url(main_pic.jpg) 50% 0 no-repeat; position:relative}
+.main-pic {position:relative; height:427px; width:988px; margin:0 auto}
+.wrap-links a {font:italic 15px Cambria; color:#000}
+div.link1 {position:absolute; top:78px; left:298px; background:url(link1.png) 0 0 no-repeat; width:74px; height:36px; padding:0 0 0 12px}
+div.link2 {position:absolute; top:84px; left:484px; background:url(link2.png) 0 0 no-repeat; width:125px; height:36px; padding:0 0 0 8px}
+div.link3 {position:absolute; top:172px; left:340px; background:url(link3.png) 0 0 no-repeat; width:138px; height:37px; padding:0 0 0 10px}
+div.link4 {position:absolute; top:145px; left:661px; background:url(link4.png) 0 0 no-repeat; width:70px; height:37px; padding:0 0 0 16px}
+div.link5 {position:absolute; top:357px; left:250px; background:url(link5.png) 0 0 no-repeat; width:91px; height:24px; padding:16px 0 0 8px}
+div.link6 {position:absolute; top:286px; left:640px; background:url(link6.png) 0 0 no-repeat; width:90px; height:24px; padding:17px 0 0 10px}
+
+.wrap-menu {padding:0; margin:0 auto; width:988px; height:50px}
+.wrap-menu a.home {display:block; background:url(home.png) 0 0 no-repeat; width:28px; height:27px; float:left; margin:11px 0 0 46px}
+.wrap-menu #upm {padding:0 0 0 16px; margin:0; float:left; height:50px; list-style:none; font-size:0; line-height:0}
+.wrap-menu #upm li {padding:0 25px 0 0; margin:0; float:left}
+.wrap-menu #upm li a {font:normal 14px/48px Verdana, Geneva, sans-serif; color:#282929; text-decoration:underline}
+.wrap-menu #upm li a:hover {color:#d90435; text-decoration:none}
+
+.wrap-blocks {background:url(for_blocks.jpg) 0 0 no-repeat; height:156px; width:951px; margin:0 auto; padding:0 19px 0 18px}
+.wrap-blocks .sep {width:2px; float:left; height:156px; background:url(block_sep.png) 0 14px no-repeat}
+.wrap-blocks .block1 {float:left; padding:0 0 0 27px; margin:0 25px 0 0; background:url(block1_ico.jpg) 27px 12px no-repeat; font:normal 12px Verdana, Geneva, sans-serif; color:#3c3c3c; width:262px; position:relative; height:136px; overflow:hidden}
+.wrap-blocks .block1 a {color:#d90435; text-decoration:none}
+.wrap-blocks .block1 span.title {display:block; padding:25px 0 22px 72px; font:normal 22px Cambria; color:#000; text-shadow:1px 1px #fbfbfb}
+
+.wrap-blocks .block2 {float:left; padding:0 0 0 23px; margin:0 5px 0 0; background:url(block2_ico.jpg) 31px 14px no-repeat; font:normal 12px Verdana, Geneva, sans-serif; color:#3c3c3c; width:295px; position:relative; height:136px; overflow:hidden}
+.wrap-blocks .block2 a {color:#d90435; text-decoration:none}
+.wrap-blocks .block2 span.title {display:block; padding:25px 0 22px 74px; font:normal 22px Cambria; color:#000; text-shadow:1px 1px #fbfbfb}
+
+.wrap-blocks .block3 {float:left; padding:0 0 0 21px; margin:0 5px 0 0; background:url(block3_ico.jpg) 23px 16px no-repeat; font:normal 12px Verdana, Geneva, sans-serif; color:#3c3c3c; width:270px; position:relative; height:136px; overflow:hidden}
+.wrap-blocks .block3 a {color:#d90435; text-decoration:none}
+.wrap-blocks .block3 span.title {display:block; padding:25px 0 22px 71px; font:normal 22px Cambria; color:#000; text-shadow:1px 1px #fbfbfb}
+
+.cont-box {width:952px; margin:0 auto; padding:0 18px 55px}
+
+.left-block {float:left; width:314px; padding:0}
+.lm-top {background:#FFF url(lmenu_top.jpg) 0 0 no-repeat}
+.lm-bot {background:url(lmenu_bot.jpg) 0 100% no-repeat; min-height:234px}
+.lm-title {padding:26px 0 26px 27px; font:normal 24px Verdana, Geneva, sans-serif; color:#272727}
+#lmenu {padding:0 70px 227px 42px; margin:0; list-style:none; font-size:0; line-height:0}
+#lmenu li {padding:0; margin:0 0 16px; vertical-align:top; display:inline-block}
+#lmenu li a {font:normal 16px Cambria; color:#262727; text-transform:uppercase; text-decoration:underline}
+#lmenu li span {text-decoration:none; font:normal 16px Cambria; color:#262727; display:inline-block; margin:0 0 0 4px}
+#lmenu li a:hover {color:#d90435; text-decoration:none}
+#lmenu li:hover span {color:#d90435}
+
+.clock-bg {margin:20px 0 0; background:url(clock_bg.jpg) 0 0 repeat-y}
+.clock-top {background:url(clock_top.jpg) 0 0 no-repeat}
+.clock-bot {background:url(clock_bot.jpg) 0 100% no-repeat; min-height:162px}
+.clock {padding:11px 0 0 27px; font:normal 14px/24px Verdana, Geneva, sans-serif; color:#000}
+.clock span.title {display:block; padding:0 100px 12px 0px; font:normal 24px Verdana, Geneva, sans-serif; color:#FFF; line-height:normal}
+
+.main-block {padding:0 0 0 20px; margin:0; float:left; width:618px}
+.wrap-content-blocks {margin:0 0 0 -12px}
+.content-block {background:url(cont_block.png) 0 0 no-repeat; width:303px; height:167px; float:left; margin:0 0 13px 12px}
+.content-block .block-title {border-bottom:1px solid #d2d2d2; padding:0 0 0 93px; font:normal 18px/35px Cambria; color:#151515; height:35px; margin:0 0 7px}
+.content-block .block {position:relative; overflow:hidden; height:120px; font:italic 13px Cambria; color:#151515}
+.content-block .block .for-ico {margin:0 5px 0 8px; float:left; width:81px; height:104px}
+.content-block .block a.more {display:block; text-align:center; background:url(but.png) 0 0 no-repeat; width:62px; height:23px; font:normal 13px/20px Cambria; color:#000; text-decoration:none; margin:-15px 0 0 93px}
+.content-block .block a.more:hover {color:#FFF}
+
+.content {padding:6px 13px 0 0; margin:0}
+
+
+
+.f-blank {height:66px}
+#footer {position:relative; background:url(footer.jpg) 50% 0 no-repeat; width:988px; margin:0 auto; height:66px}
+.copy {position:absolute; top:12px; left:47px; font:italic 13px Cambria; color:#e9e9e9}
+.tel {position:absolute; top:12px; right:47px; font:normal 11px Cambria; color:#eaeaea}
+.tel span {font-size:13px}
+#bmenu {padding:0; margin:0; text-align:center; list-style:none; font-size:0; line-height:0}
+#bmenu li {display:inline; padding:0 7px; margin:0}
+#bmenu li a {font:italic 13px/38px Cambria; color:#e1e1e1; text-decoration:underline}
+#bmenu li a:hover {text-decoration:none; color:#919090}
+
+
+
+/*  katalog  */
+
+#nav {padding:0; margin:0 0 0 -6px; list-style:none; font-size:0; line-height:0}
+#nav li {padding:0; margin:0 0 9px 4px; float:left; width:204px; height:42px}
+#nav li a {display:block; cursor:pointer; background:url(nav_a.png) 0 0 no-repeat; width:204px; height:42px; text-align:center; font:normal 16px/38px Cambria; color:#262727; text-decoration:none; text-transform:uppercase}
+#nav li a:hover {color:#d90435}
+#nav li a span {display:inline-block; margin:0 0 0 2px}
+
+.path {padding:5px 0 15px; margin:0; font:italic 14px Cambria; color:#808080}
+.path a {color:#1b1b1b}
+
+.tov-top {background:#FFF url(tov_top.jpg) 0 0 no-repeat; margin:0 0 10px; width:617px}
+.tov-bot {background:url(tov_bot.jpg) 0 100% no-repeat; min-height:108px; padding:0 0 9px}
+.tov-name {padding:0 0 0 14px; margin:0 0 4px; border-bottom:1px solid #d2d2d2; font:normal 18px/29px Cambria; color:#151515; height:32px}
+.tov-name a {color:#151515}
+.tov-img {float:left; width:72px; height:77px; margin:0 27px 0 25px; position:relative; overflow:hidden}
+.tov-img img {max-width:72px}
+.desc {padding:0; float:left; width:478px}
+.desc .t-note {padding:5px 0 8px; font:italic 13px Cambria; color:#151515}
+.desc a.buy {display:block; text-align:center; background:url(but.png) 0 0 no-repeat; width:62px; height:23px; font:normal 13px/20px Cambria; color:#000; text-decoration:none; margin:0; float:left}
+.desc .price {width:119px; float:left; text-align:center; font:normal 18px Tahoma, Geneva, sans-serif; color:#e80000; margin:-4px 0 0}
+.desc .price span {font-size:22px}
+.desc .col {padding:1px 0 0; margin:0; float:left; width:175px; font:normal 13px Cambria; color:#000}
+.desc .col form {padding:0; margin:0; vertical-align:top}
+.desc .col form span {display:inline-block; margin:2px 6px 0 0}
+.desc .col form input {padding:0; margin:0; vertical-align:top; font-size:12px; border:none; background:url(inp.jpg) 0 0 no-repeat; width:42px; height:23px; text-align:center; line-height:22px}
+.desc a.more {display:inline-block; font:italic 13px Cambria; color:#000; margin:7px 0 0}
+
+.pagination {padding:5px 0 15px; margin:0; list-style:none; text-align:center; font-size:0; line-height:0}
+.pagination li {padding:0; margin:0; display:inline}
+.pagination li a {display:inline-block; padding:0 0 1px 1px; margin:0 4px; width:20px; height:20px; cursor:pointer; text-align:center; font:bold 14px/20px Verdana, Geneva, sans-serif; color:#272727; text-decoration:none}
+.pagination li a:hover {background:url(pagination.png) 0 0 no-repeat}
+
+/*  tovar  */
+
+.wrap-prod {padding:22px 0 10px}
+.wrap-prod .prod-image {padding:0 45px 0 49px; margin:0; float:left; text-align:center; width:148px; height:276px; position:relative; overflow:hidden; font:normal 18px Tahoma, Geneva, sans-serif; color:#e80000}
+.wrap-prod .prod-image span {font-size:30px; display:inline-block; margin:0 0 0 20px}
+.wrap-prod .prod-image image {max-height:236px; margin:0}
+.wrap-prod .description {padding:0; float:left; width:370px}
+.wrap-prod .description .prod-name {padding:0 0 20px; font:normal 20px Verdana, Geneva, sans-serif; color:#e80000}
+.wrap-prod .description .prod-note {padding:0 0 22px; font:normal 14px/18px Verdana, Geneva, sans-serif; color:#272727}
+.wrap-prod .description .prod-desc {padding:0 0 22px; font:normal 14px Verdana, Geneva, sans-serif; color:#272727}
+.wrap-prod .description .prod-desc p {padding:0; margin:0}
+.wrap-prod .description .prod-desc span {color:#e80000; font:italic 14px Cambria}
+.wrap-prod .description a.buy {display:block; background:url(buy.png) 0 0 no-repeat; width:95px; height:32px; text-align:center; cursor:pointer; font:normal 18px/28px Cambria; color:#000; text-decoration:none}
+
+.wrap-slider {position:relative; height:203px; padding:0 55px 7px 49px; margin:0; width:513px}
+.wrap-slider a.arr-left {position:absolute; top:76px; left:5px; display:block; background:url(arr_left.png) 0 0 no-repeat; width:42px; height:42px}
+.wrap-slider a.arr-right {position:absolute; top:76px; right:9px; display:block; background:url(arr_right.png) 0 0 no-repeat; width:42px; height:42px}
+.wrap-slider .rel {width:513px; position:relative; overflow:hidden; height:203px}
+.wrap-slider .rel .width {width:10000px}
+.wrap-slider .rel #slider {padding:0; margin:0; float:left; list-style:none; font-size:0; line-height:0}
+.wrap-slider .rel #slider li {padding:11px 17px 0 18px; margin:0 12px; float:left; width:113px; background:url(for_prod.jpg) 0 0 no-repeat; height:192px}
+.wrap-slider .rel #slider li span.thum {display:block; text-align:center; width:113px; height:118px}
+.wrap-slider .rel #slider li span.thum img {max-height:118px; max-width:113px}
+.wrap-slider .rel #slider li span.name {text-align:center; font:normal 12px/12px Cambria; color:#000; display:block}
+.wrap-slider .rel #slider li span.price {display:block; text-align:center; font:normal 12px/12px Cambria; color:#e80000; padding:2px 0 5px}
+.wrap-slider .rel #slider li a.buy {display:block; text-align:center; background:url(but.png) 0 0 no-repeat; width:62px; height:23px; font:normal 13px/20px Cambria; color:#000; text-decoration:none; margin:0 auto}
+
+
+.bg {position:fixed; top:0; left:0; right:0; height:100%; width:100%; background:url(bg_fix.png) 0 0 repeat; z-index:1000; display:none}
+.window {position:fixed; top:50%; left:50%; background:url(window.png) 0 0 no-repeat; width:415px; height:200px; margin:-111px 0 0 -207px; z-index:10000; padding:22px 0 0; display:none}
+.window a.close {display:block; background:url(close.png) 0 0 no-repeat; width:19px; height:19px; position:absolute; top:25px; right:24px}
+.window .title {padding:0 0 7px; text-align:center; font:italic 24px Cambria; color:#e80000}
+.window .for-pic {padding:6px 14px; margin:0 18px 0 31px; float:left; text-align:center; background:url(for_pic.png) 0 0 no-repeat; width:104px; height:120px}
+.window .desc {float:left; padding:0; width:190px}
+.window .desc .name {padding:0 0 9px; font:normal 18px/18px Cambria; color:#000}
+.window form {padding:0; margin:0; vertical-align:top}
+.window form input {padding:0 6px; margin:0 0 8px; vertical-align:top; border:none; background:url(input.png) 0 0 no-repeat; outline:none; width:129px; height:24px; display:block; font:normal 12px/23px Cambria; color:#787878}
+.window a.buy {display:inline-block; text-align:center; background:url(but.png) 0 0 no-repeat; width:62px; height:23px; font:normal 13px/20px Cambria; color:#000; text-decoration:none; margin:0 45px 0 0; float:left}
+.window .price {padding:3px 0 0; font:normal 14px Cambria; color:#e80000; float:left; width:auto}
+.window .price span {font-size:18px}
+
+.sample {padding:23px 75px 0; text-align:center; font:italic 24px/26px Cambria; color:#e80000}
+.sample a {font:italic 16px Cambria; color:#000; display:inline-block; margin:17px 0}
+.sample .s-tel {padding:0; margin:0; font:normal 11px Verdana, Geneva, sans-serif; color:#d90435}
+
+.wrap-prod .description button.buy {
+    display:block;
+    text-align:center;
+    width:95px;
+    height:32px;
+    font:normal 18px/28px Cambria;
+    color:#000;
+    text-decoration:none;
+    margin:0;
+    border: none;
+    float:left;
+    display: block;
+    background: url(buy.png) 0 0 no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+.desc button.buy {
+    display:block; text-align:center;
+    background:url(but.png) 0 0 no-repeat;
+    width:62px; height:23px; font:normal 13px/20px Cambria;
+    color:#000; text-decoration:none; margin:0; float:left;
+    border: none;
+}
+
+
+.price-group {
+    width: 298px;
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+.price-group.even {
+    margin-right: 0;
+}
+
+.price-group .desc {
+    text-align: center;
+}
