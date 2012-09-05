@@ -8,6 +8,7 @@
     <div id="cart_link"><a href="{% url order_link %}"><h3>Корзина</h3></a></div>
 
     <div class="clear"></div>
+
     <div class="catalog">
     {% if products %}
         <table class="goods-list">
@@ -30,9 +31,9 @@
                 <!--<td class="has-border"></td>-->
                 <td>
                     <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="0" />
-                    <label>
-                        <input type="image" id="add_to_cart_{{product.pk}}" class="add_to_cart" src="{% admin_media_prefix %}img/admin/icon_changelink.gif" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}" />
-                    </label>
+{#                    <label>#}
+{#                        <input type="image" id="add_to_cart_{{product.pk}}" class="add_to_cart" src="{% admin_media_prefix %}img/admin/icon_changelink.gif" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}" />#}
+{#                    </label>#}
                     <label>
                         <input type="image" src="{% admin_media_prefix %}img/admin/icon_deletelink.gif" class="delete_from_cart" product_id="{{product.pk}}" />
                     </label><br>
@@ -50,7 +51,7 @@
             </tr>
             </tbody>
         </table>
-        </div> <!-- catalog -->
+    </div> <!-- catalog -->
         <div class="clear"></div>
 {#        <div class="line"></div>#}
         <hr>
@@ -60,12 +61,13 @@
             </form>
             <button id="send-order-button">Отправить заявку</button>
         </div>
+        <div class="clear"></div>
     {% else %}
         {% if not messages %}
             Ваша заявка пуста
+            <div class="clear"></div>
         {% endif %}
     {% endif %}
-    <div class="clear"></div>
 
 {% endblock %}
 
