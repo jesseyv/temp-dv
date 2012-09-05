@@ -10,9 +10,9 @@ class Unit(models.Model):
     class Meta:
         verbose_name = u"Единица измерения стоимости"
         verbose_name_plural = u"Единицы измерения стоимости"
-    
+
     title = models.CharField(u"Название", max_length=255)
-    
+
     def __unicode__(self):
         return self.title
 
@@ -48,14 +48,14 @@ class Product(models.Model):
         verbose_name = u"Товар"
         verbose_name_plural = u"Товары"
         ordering = ["position"]
-        
+
     title = models.CharField(u"Название товара", max_length=255)
     productgroup = models.ForeignKey("shop.ProductGroup", related_name="group_products", null=True, blank=True)
     property = models.TextField(u'Характеристика', blank=True)
     description = models.TextField(u'Описание товара', blank=True)
     price = models.FloatField(u'Стоимость', default=0.0, help_text=u'Разделитель десятичной дроби - точка (.)')
     unit = models.ForeignKey(Unit, related_name="unit_products")
-    load = models.IntegerField(u"Загрузка", null=True, blank=True)
+    load = models.IntegerField(u"Загрузка", default=1)
     position = models.IntegerField(u"Позиция в списке")
     keywords = models.CharField(u'Ключевые слова в метатеге', max_length=255, null=True, blank=True)
     meta_description = models.CharField(u'Метатег "description"', max_length=255, null=True, blank=True)
@@ -73,20 +73,20 @@ class Product(models.Model):
         return Page(title=self.title, keywords=self.keywords, meta_description=self.meta_description)
 
 
-    
+
 class ProductImage(models.Model):
     class Meta:
         verbose_name = u"Скриншот"
         verbose_name_plural = u"Скриншоты"
-        
+
     title = models.CharField(u"Название", max_length=255, blank=True, null=True)
     image = ImageWithThumbsField(upload_to='uploads/products', sizes=((95, 95), (150, 150), (300,300)) )
     service = models.ForeignKey(Product, related_name='product_images')
-    
+
     def __unicode__(self):
         return self.title
-    
-    
+
+
 class Order(models.Model):
     class Meta:
         verbose_name = u"Заказ"
@@ -99,11 +99,11 @@ class Order(models.Model):
     phone = models.CharField(u'Телефон', max_length=255, null=True)
     email = models.EmailField(u'Эл. почта', max_length=255, null=True)
     description = models.TextField(u'Примечание к заявке', blank=True)
-    
+
     def __unicode__(self):
         return self.name +' '+ str(self.date)
 
-    
+
 class OrderCount(models.Model):
     class Meta:
         verbose_name = u"Количество"
@@ -111,8 +111,8 @@ class OrderCount(models.Model):
 
     product = models.ForeignKey(Product, related_name='count_product')
     order = models.ForeignKey(Order, related_name='count_order')
-    count = models.IntegerField(u'Количество', default=1)    
-    
+    count = models.IntegerField(u'Количество', default=1)
+
     def __unicode__(self):
         return self.product.title +' '+self.order.company
 

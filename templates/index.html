@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block wrap_main %}
+    <div class="wrap-main">
+        <div class="bg-right"></div>
+        <div class="wrap-main-in">
+            <div class="main-pic">
+                <div class="wrap-links">
+                    <div class="link1"><a href="/products/5">хомуты</a></div>
+                    <div class="link2"><a href="/products/3">ароматизаторы</a></div>
+                    <div class="link3"><a href="/products/6">карбоновая плёнка</a></div>
+                    <div class="link4"><a href="/products/1">наклейки</a></div>
+                    <div class="link5"><a href="/products/2">светодиоды</a></div>
+                    <div class="link6"><a href="/products/4">автолампы</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="wrap-content-blocks">
+        {% for group in groups %}
+            <div class="content-block">
+                <div class="block-title">{{ group.title }}</div>
+                <div class="block">
+                    <div class="for-ico"><img src="{{ group.get_image_url }}" border="0" alt="" /></div>
+                    {{ group.description|safe }}
+                    <div class="clear"></div>
+                    <a href="{% url price_list group.pk %}" class="more">перейти</a>
+                <div class="clear"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="clear"></div>
+{% endblock %}
+
+{% block page_content %}
+    <div class="content">
+        <h1>{{ p.title }}</h1>
+        {{ p.content|safe }}
+    </div>
+{% endblock %}

@@ -28,7 +28,7 @@ def render_to(tmpl):
     return renderer
 
 
-@render_to('home.html')
+@render_to('index.html')
 def home(request):
     return {'p': get_object_or_404(Page, url='index'), 'groups': ProductGroup.objects.filter(productgroup=None)}
 
@@ -39,7 +39,7 @@ def contacts(request):
 @render_to('search.html')
 def error404(request):
     return {'p':Page(title=u'Такой страницы не найдено', content=u'Такой страницы не существует. Воспользуйтесь поиском по сайту')}
-    
+
 @render_to('search.html')
 def error403(request):
     return {'p':Page(title=u'Недостаточно прав для совершения операции', content=u'Недостаточно прав для совершения операции.')}

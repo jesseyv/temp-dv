@@ -126,6 +126,8 @@ $(document).ready(function(){
                 delete order[product_id];
             }
             recalcCart();
+            $('.bg').show();
+            $('.window').show();
             return false;
         }
     });
@@ -176,7 +178,7 @@ $(document).ready(function(){
                 required: "Пожалуйста, введите код подтверждения", minlength: "На картинке 5 символов"
             }
         }
-    }
+    };
 
 
     $('#message-button').click(function(){
@@ -261,7 +263,7 @@ function getBrowserInfo() {
 	 else if (navigator.appName) t = 'Netscape';
 	 return {type:t,version:v};
 }
-	 
+
 function AddBookmark(a){
 	 var url = window.document.location;
 	 var title = window.document.title;

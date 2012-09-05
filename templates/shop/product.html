@@ -1,16 +1,54 @@
-{% extends "home.html" %}{% load menues %}
+{% extends "base.html" %}{% load menues %}
+
+{% block logo %}
+    <div class="logo2"><a href="/"><img src="{{ STATIC_URL }}images/logo2.png" border="0" alt="" /></a></div>
+{% endblock %}
+
 {% block main %}
-    <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>
+    <div id="cart_link"><a href="{% url order_link %}"><h3>Корзина</h3></a></div>
+
     <div class="tov-top">
         <div class="tov-bot">
             <div class="wrap-prod">
                 <div class="prod-image">
-                    <img src="{{product.get_image.image.url_148x148}}" border="0" alt="" />
+                    <img src="{{ product.get_image.image.url }}" border="0" alt="" />
                     <span>{{ product.price }}</span> руб.
                 </div>
                 <div class="description">
                     <div class="prod-name">{{ product.title|safe }}</div>
-                    <div class="prod-note">{{ product.description|safe }}</div>
+                    <div class="prod-note">{{ product.property|safe }}</div>
+                    <div class="prod-desc">
+                        <p>{{ product.description|safe }}</p>
+                    </div>
+{#                    <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
+{#                    <button class="add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
+                    <form id="order-form-{{product.pk}}" class="order-form">
+                        <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="0" size="3"/>
+                        <label>
+                            <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Купить</button>
+                        </label>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+{% endblock %}
+{#{% extends "home.html" %}{% load menues %}#}
+{#{% block main %}#}
+{#    <div id="cart_link"><a href="{% url order_link %}">Заявка</a></div>#}
+{#    <div class="tov-top">#}
+{#        <div class="tov-bot">#}
+{#            <div class="wrap-prod">#}
+{#                <div class="prod-image">#}
+{#                    <img src="{{product.get_image.image.url_148x148}}" border="0" alt="" />#}
+{#                    <span>{{ product.price }}</span> руб.#}
+{#                </div>#}
+{#                <div class="description">#}
+{#                    <div class="prod-name">{{ product.title|safe }}</div>#}
+{#                    <div class="prod-note">{{ product.description|safe }}</div>#}
 {#                    <div class="prod-desc">#}
 {#                        <p><span>Производство:</span> CYCLO (США)</p>#}
 {#                        <p><span>Материал:</span> спрей</p>#}
@@ -18,16 +56,16 @@
 {#                    </div>#}
 {#                    <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
 {#                    <button class="add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
-                    <form id="order-form-{{product.pk}}" class="order-form">
-                        <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="1" size="3"/>
-                        <label>
-                            <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>
-                        </label>
-                    </form>
-                </div>
-            <div class="clear"></div>
-            </div>
-        <div class="clear"></div>
+{#                    <form id="order-form-{{product.pk}}" class="order-form">#}
+{#                        <input type="text" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="1" size="3"/>#}
+{#                        <label>#}
+{#                            <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>#}
+{#                        </label>#}
+{#                    </form>#}
+{#                </div>#}
+{#            <div class="clear"></div>#}
+{#            </div>#}
+{#        <div class="clear"></div>#}
 {#        <div class="wrap-slider">#}
 {#            <a href="#" class="arr-left"></a>#}
 {#            <a href="#" class="arr-right"></a>#}
@@ -56,10 +94,10 @@
 {#                </div>#}
 {#            </div>#}
 {#        </div>#}
-        </div>
-    </div>
-{% endblock %}
-
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+{##}
 {#{% extends "home.html" %}{% load menues %}#}
 {#{% block left_menu %}#}
 {#    {% left_menu product.productgroup %}#}

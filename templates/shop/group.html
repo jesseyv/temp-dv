@@ -1,25 +1,36 @@
-{% extends "home.html" %}{% load menues %}
+{% extends "base.html" %}{% load menues %}
+
+{% block logo %}
+<div class="logo2"><a href="/"><img src="{{ STATIC_URL }}images/logo2.png" border="0" alt="" /></a></div>
+{% endblock %}
 
 {% block main %}
-{#    <ul id="nav">#}
-{#            	<li><a href="#">НАКЛЕЙКИ <span>(6)</span></a></li>#}
-{#                <li><a href="#">АРОМАТИЗАТОРЫ <span>(0)</span></a></li>#}
-{#                <li><a href="#">СВЕТОДИОДЫ <span>(10)</span></a></li>#}
-{#                <li><a href="#">АВТОЛАМПЫ <span>(0)</span></a></li>#}
-{#                <li><a href="#">ХОМУТЫ <span>(0)</span></a></li>#}
-{#                <li><a href="#">КАРБОНОВАЯ ПЛЕНКА <span>(0)</span></a></li>#}
-{#            </ul>#}
-{#    <div class="clear"></div>#}
+    <div id="cart_link"><a href="{% url order_link %}"><h3>Корзина</h3></a></div>
+
+    <ul id="nav">
+        {% for group in groups %}
+            <li><a href="{% url price_list group.pk %}">{{ group.title }}&nbsp;<span>({{group.products_count}})</span></a></li>
+        {% endfor %}
+    </ul>
+
     {% navigation group %}
 
+    {% productlist group %}
+
     {% for group in groups %}
-        <div class="tov-top price-group {% cycle 'odd' 'even' %}">
-            <div class="tov-bot">
-                <div class="tov-name"><a href="{% url price_list group.pk %}">{{ group.title }} ({{group.products_count}})</a></div>
-                <div class="tov-img">
-                    <a href="{% url price_list group.pk %}"><img src="{{group.get_image_url}}" border="0" alt="" /></a>
-                </div>
-                <div class="desc">
+        {% productlist group %}
+    {% endfor %}
+
+{% endblock %}
+
+{#    {% for group in groups %}#}
+{#        <div class="tov-top price-group {% cycle 'odd' 'even' %}">#}
+{#            <div class="tov-bot">#}
+{#                <div class="tov-name"><a href="{% url price_list group.pk %}">{{ group.title }} ({{group.products_count}})</a></div>#}
+{#                <div class="tov-img">#}
+{#                    <a href="{% url price_list group.pk %}"><img src="{{group.get_image_url}}" border="0" alt="" /></a>#}
+{#                </div>#}
+{#                <div class="desc">#}
 {#                    <div class="t-note">Спрей-освежитель воздуха усиленного действия, для борьбы с устойчевыми и затхлыми запахами.</div>#}
 {#                    <a href="#" class="buy">купить</a>#}
 {#                    <div class="price"><span>500</span> руб.</div>#}
@@ -29,14 +40,14 @@
 {#                        </form>#}
 {#                    </div>#}
 {#                    <a href="{% url price_list group.pk %}" class="more">Выбрать товар</a>#}
-                <div class="clear"></div>
-                </div>
-            <div class="clear"></div>
-            </div>
-        </div>
-    {% endfor %}
+{#                <div class="clear"></div>#}
+{#                </div>#}
+{#            <div class="clear"></div>#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
 
-    {% productlist group %}
+    {#{% productlist group %}#}
 
 {#    <ul class="pagination">#}
 {#        <li><a href="#">1</a></li>#}
@@ -46,12 +57,7 @@
 {#        <li><a href="#">5</a></li>#}
 {#        <li><a href="#">6</a></li>#}
 {#    </ul>#}
-    <div class="content">
-{#        <h1>Описание категории сайта</h1>#}
-        {{p.content|safe}}
-    {{ p }}
-    </div>
-{% endblock %}
+
 {#{% extends "home.html" %}{% load menues %}#}
 {#{% block left_menu %}#}
 {#    {% left_menu group %}#}

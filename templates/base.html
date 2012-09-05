@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="ru">
+{% load menues %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="{% if p.meta_description %}{{ p.meta_description|striptags }}.{% else %}ООО &quot;Темп&quot;{% if p.title %} - {{ p.title }}{% endif %}{% endif %}" />
+        <meta name="keywords" content="{% if p.meta_keywords %}{{ p.meta_keywords }}{% else %}{{ p.title }}, {{ p.title|lower }}{% endif %}" />
+        <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+        <title>{% if p.title %}{{p.title|safe}}{% else %}ООО &quot;Темп&quot;{% endif %}</title>
+        <link href="{{ STATIC_URL }}images/styles.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/nf.lightbox.css" />
+        <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/ie7.css" /><![endif]-->
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/NFLightBox.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/script.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}images/slider.js"></script>
+    </head>
+
+    <body>
+        <div id="wrap">
+
+            <div class="bg" style="display:none;"></div>
+            <div class="window" style="display:none;">
+                <a href="#" class="close"></a>
+                <div class="sample">
+                    Спасибо за покупку,<br />в течении часа<br />мы с Вами свяжемся !<br />
+                    <a href="/order">Перейти к корзине</a>
+                    <div class="s-tel">Контактный телефон: +7 (423) 270-09-23</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="top">
+                <div id="header">
+                    {% block logo %}
+                    <div class="logo"><a href="/"><img src="{{ STATIC_URL }}images/logo.png" border="0" alt="" /></a></div>
+                    {% endblock %}
+                    <div class="phone">Тел.: +7 (423) <span>270-09-23</span></div>
+                    <div class="que"><a class="question" id="message-button" href="javascript:void(0)">Есть вопросы - пиши!</a>
+                    </div>
+                </div>
+            </div>
+
+            {% block wrap_main %}{% endblock %}
+
+            <div class="wrap-menu">
+                <a href="/" class="home"></a>
+                {% topmenulinks %}
+            </div>
+
+            <div class="wrap-blocks">
+                <div class="block1">
+                    <span class="title">Авто Тюнинг</span>
+                    Авто тюнинг подразумевает изменение внешнего вида машины, ее интерьера, доводку двигателя и других узлов. <a href="#">>>></a>
+                </div>
+                <div class="sep"></div>
+                <div class="block2">
+                    <span class="title">Как Оплатить</span>
+                    Выберите способ оплаты, который подходит именно Вам и оплачивайте услуги в любое время без очередей и выходных. <a href="/how-to-buy.html">>>></a>
+                </div>
+                <div class="sep"></div>
+                <div class="block3">
+                    <span class="title">Доставка</span>
+                    Одной из набирающих популярность тенденций, связанных с региональными представительствами является... <a href="#">>>></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        <div class="cont-box">
+            <div class="left-block">
+                <div class="lm-top">
+                    <div class="lm-bot">
+                        <div class="lm-title">Наша Продукция</div>
+                        {% block left_menu %}
+                            {% left_menu %}
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="clock-bg">
+                    <div class="clock-top">
+                        <div class="clock-bot">
+                            <div class="clock">
+                                <span class="title">Время Работы:</span>
+                                Все 24 часа в сутки<br />7 дней в неделю<br />мы работаем для Вас !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-block">
+                {% block main %}
+
+                {% endblock %}
+
+                {% block page_content %}
+
+                {% endblock %}
+            </div>
+        <div class="clear"></div>
+        </div>
+    <div class="f-blank"></div>
+    </div>
+    <div id="footer">
+        <div class="copy">Copyright &copy; ООО "Темп", 2012.</div>
+        <div class="tel">Тел.: +7 (423) <span>270-09-23</span></div>
+        {% footmenulinks %}
+    </div>
+
+    <div id="dialog"></div>
+    <div class="ui-widget-overlay" id="overlay" style="display: none;">
+        <img src="{{ STATIC_URL }}images/ajax-loader.gif">
+    </div>
+    {% include 'blocks/yandex_metrika.html' %}
+
+    </body>
+</html>

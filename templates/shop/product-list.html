@@ -8,11 +8,11 @@
             <div class="desc">
                 <div class="t-note">{{product.property|safe}}</div>
                 <form id="order-form-{{product.pk}}" class="order-form">
-                    <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Заказать</button>
+                    <button class="buy add_to_cart" product_id="{{product.pk}}" load="{{product.load}}" price="{{product.price}}">Купить</button>
                     <div class="price"><span>{{product.price}}</span> руб. {{product.unit}}</div>
                     <div class="col">
                         <span>Кол-во:</span>
-                        <input type="text" size="3" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="1" />
+                        <input type="text" size="3" name="product_{{product.pk}}" id="product_{{product.pk}}" class="add_to_cart_num" value="0" />
                     </div>
                 </form>
                 <a href="{% url product_link product.pk %}" class="more">читать подробнее</a>

@@ -94,7 +94,7 @@ div.link6 {position:absolute; top:286px; left:640px; background:url(link6.png) 0
 #lmenu {padding:0 70px 227px 42px; margin:0; list-style:none; font-size:0; line-height:0}
 #lmenu li {padding:0; margin:0 0 16px; vertical-align:top; display:inline-block}
 #lmenu li a {font:normal 16px Cambria; color:#262727; text-transform:uppercase; text-decoration:underline}
-#lmenu li span {text-decoration:none; font:normal 16px Cambria; color:#262727; display:inline-block; margin:0 0 0 4px}
+#lmenu li span {text-decoration:none; font:normal 16px Arial, sans-serif; color:#262727; display:inline-block; margin:0 0 0 4px}
 #lmenu li a:hover {color:#d90435; text-decoration:none}
 #lmenu li:hover span {color:#d90435}
 
@@ -110,6 +110,7 @@ div.link6 {position:absolute; top:286px; left:640px; background:url(link6.png) 0
 .content-block .block-title {border-bottom:1px solid #d2d2d2; padding:0 0 0 93px; font:normal 18px/35px Cambria; color:#151515; height:35px; margin:0 0 7px}
 .content-block .block {position:relative; overflow:hidden; height:120px; font:italic 13px Cambria; color:#151515}
 .content-block .block .for-ico {margin:0 5px 0 8px; float:left; width:81px; height:104px}
+.content-block .block .for-ico img {width:81px; height:81px}
 .content-block .block a.more {display:block; text-align:center; background:url(but.png) 0 0 no-repeat; width:62px; height:23px; font:normal 13px/20px Cambria; color:#000; text-decoration:none; margin:-15px 0 0 93px}
 .content-block .block a.more:hover {color:#FFF}
 
@@ -135,7 +136,7 @@ div.link6 {position:absolute; top:286px; left:640px; background:url(link6.png) 0
 #nav li {padding:0; margin:0 0 9px 4px; float:left; width:204px; height:42px}
 #nav li a {display:block; cursor:pointer; background:url(nav_a.png) 0 0 no-repeat; width:204px; height:42px; text-align:center; font:normal 16px/38px Cambria; color:#262727; text-decoration:none; text-transform:uppercase}
 #nav li a:hover {color:#d90435}
-#nav li a span {display:inline-block; margin:0 0 0 2px}
+#nav li a span {display:inline-block; margin:0 0 0 2px; font-family: Arial, sans-serif}
 
 .path {padding:5px 0 15px; margin:0; font:italic 14px Cambria; color:#808080}
 .path a {color:#1b1b1b}
@@ -167,6 +168,7 @@ div.link6 {position:absolute; top:286px; left:640px; background:url(link6.png) 0
 .wrap-prod {padding:22px 0 10px}
 .wrap-prod .prod-image {padding:0 45px 0 49px; margin:0; float:left; text-align:center; width:148px; height:276px; position:relative; overflow:hidden; font:normal 18px Tahoma, Geneva, sans-serif; color:#e80000}
 .wrap-prod .prod-image span {font-size:30px; display:inline-block; margin:0 0 0 20px}
+.wrap-prod .prod-image img {max-height:236px; margin:0}
 .wrap-prod .prod-image image {max-height:236px; margin:0}
 .wrap-prod .description {padding:0; float:left; width:370px}
 .wrap-prod .description .prod-name {padding:0 0 20px; font:normal 20px Verdana, Geneva, sans-serif; color:#e80000}
@@ -246,3 +248,4 @@ div.link6 {position:absolute; top:286px; left:640px; background:url(link6.png) 0
 .price-group .desc {
     text-align: center;
 }
+

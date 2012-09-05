@@ -13,9 +13,9 @@ def news_block():
 news_block = register.inclusion_tag('blocks/news.html')(news_block)
 
 
-def leftmenulinks():
+def topmenulinks():
     return {"links": LeftMenuLink.objects.all()}
-leftmenulinks = register.inclusion_tag('blocks/leftmenulinks.html')(leftmenulinks)
+topmenulinks = register.inclusion_tag('blocks/topmenulinks.html')(topmenulinks)
 
 def footmenulinks():
     return {"links": LeftMenuLink.objects.all()}
